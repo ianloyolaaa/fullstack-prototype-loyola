@@ -189,7 +189,8 @@
           </div>
 
           <div class="col-12">
-            <button class="btn btn-success" type="submit">Save Employee</button>
+            <button class="btn btn-success" type="submit">Save</button>
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
           </div>
         </form>
       </div>
@@ -383,51 +384,51 @@
   </div>
 
   <!-- Employee Modal -->
-  <div class="modal fade" id="employeeModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content" id="employeeModalForm">
-        <div class="modal-header">
-          <h5 class="modal-title">Edit Employee</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<div class="modal fade" id="employeeModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="employeeModalForm">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Edit Employee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <input type="hidden" name="id" />
+
+        <div class="mb-2">
+          <label class="form-label fw-bold">Employee ID</label>
+          <input class="form-control" name="empId" required />
         </div>
 
-        <div class="modal-body">
-          <input type="hidden" name="id" />
-
-          <div class="mb-2">
-            <label class="form-label">Employee ID</label>
-            <input class="form-control" name="empId" required />
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">User Email</label>
-            <input class="form-control" type="email" name="userEmail" required />
-            <div class="form-text">Must match an existing account.</div>
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">Position</label>
-            <input class="form-control" name="position" required />
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">Department</label>
-            <select class="form-select" name="deptId" id="employeeModalDeptSelect" required></select>
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">Hire Date</label>
-            <input class="form-control" type="date" name="hireDate" required />
-          </div>
+        <div class="mb-2">
+          <label class="form-label fw-bold">User Email</label>
+          <input class="form-control" type="email" name="userEmail" required />
+          <div class="form-text fw-bold">Must match an existing account.</div>
         </div>
 
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-          <button class="btn btn-success" type="submit">Save Changes</button>
+        <div class="mb-2">
+          <label class="form-label fw-bold">Position</label>
+          <input class="form-control" name="position" required />
         </div>
-      </form>
-    </div>
+
+        <div class="mb-2">
+          <label class="form-label fw-bold">Department</label>
+          <select class="form-select" name="deptId" id="employeeModalDeptSelect" required></select>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label fw-bold">Hire Date</label>
+          <input class="form-control" type="date" name="hireDate" required />
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary fw-bold" type="button" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success fw-bold" type="submit">Save Changes</button>
+      </div>
+    </form>
   </div>
+</div>
 
   <!-- Request Modal -->
   <div class="modal fade" id="requestModal" tabindex="-1" aria-hidden="true">

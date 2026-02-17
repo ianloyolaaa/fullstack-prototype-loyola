@@ -55,9 +55,13 @@ function findAccountByEmail(email) {
 
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  
   document.getElementById(pageId)?.classList.add("active");
-}
 
+  document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+}
 function navigateTo(hash) {
   window.location.hash = hash;
 }
@@ -543,6 +547,15 @@ function openEmployeeModal(emp) {
   const modalEl = document.getElementById("employeeModal");
   const form = document.getElementById("employeeModalForm");
   const user = window.db.accounts.find(a => a.id === emp.userId);
+  const employeeModalEl = document.getElementById('employeeModal');
+employeeModalEl?.addEventListener('hidden.bs.modal', () => {
+    const form = document.getElementById('employeeModalForm');
+    if (form) {
+        form.reset();   
+        const hiddenId = form.querySelector('input[name="id"]');
+        if (hiddenId) hiddenId.value = "";
+    }
+});
 
   form.reset();
   form.elements.id.value = emp.id;
