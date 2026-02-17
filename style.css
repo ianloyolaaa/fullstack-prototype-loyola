@@ -1,185 +1,51 @@
-/* RESET */
-* {
-  box-sizing: border-box;
+/* Pages */
+.page { display: none; }
+.page.active { display: block; }
+
+/* Auth UI */
+body.not-authenticated .role-logged-in { display: none !important; }
+body.authenticated .role-logged-out { display: none !important; }
+
+/* Admin UI (IMPORTANT: dropdown vs table) */
+.role-admin { display: none; }
+
+/* Dropdown items must be list-item (vertical) */
+body.is-admin .dropdown-menu .role-admin { display: list-item; }
+
+/* Table headers/cells must be table-cell */
+body.is-admin table .role-admin { display: table-cell; }
+
+/* Requests: make Status wide enough for badge + 3 buttons */
+.status-col {
+  min-width: 360px;
+  width: 360px;
+  white-space: nowrap;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f4f6f9;
-}
-
-/* NAVBAR */
-.navbar {
-  background: #1f2937;
-  color: white;
-  padding: 12px 25px;
-  display: flex;
-  justify-content: space-between;
+/* Alignment inside status cell */
+.status-wrap {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap;
 }
 
-.brand {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 18px;
+.req-actions {
+  display: inline-flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  gap: 6px;
+  flex-wrap: nowrap; /* KEY: keep buttons on one line */
+  white-space: nowrap;
 }
 
-.nav-links li {
-  display: inline-block;
+.req-actions .btn {
+  padding: 4px 10px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.nav-links a:hover {
-  color: #38bdf8;
-}
-
-/* MAIN */
-main {
-  padding: 30px;
-}
-
-/* PAGES */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-/* FORMS */
-input, select {
-  width: 250px;
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 8px 14px;
-  margin: 6px 4px 6px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #2563eb;
-  color: white;
-  transition: 0.2s;
-}
-
-button:hover {
-  background-color: #1e40af;
-}
-
-/* TABLE */
-table {
-  margin-top: 15px;
-  border-collapse: collapse;
-  width: 100%;
-  background: white;
-}
-
-th {
-  background: #e5e7eb;
-  text-align: left;
-}
-
-th, td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-/* SMALL BUTTONS (Edit/Delete) */
-.btn-edit {
-  background: #10b981;
-}
-
-.btn-edit:hover {
-  background: #059669;
-}
-
-.btn-delete {
-  background: #ef4444;
-}
-
-.btn-delete:hover {
-  background: #dc2626;
-}
-
-/* AUTH VISIBILITY RULES */
-body.not-authenticated .role-logged-in {
-  display: none;
-}
-
-body.authenticated .role-logged-out {
-  display: none;
-}
-
-/* ADMIN VISIBILITY */
-.role-admin {
-  display: none;
-}
-
-body.is-admin .role-admin {
-  display: inline-block;
-}
-
-/* ACCOUNT FORM BOX */
-#accountFormContainer {
-  margin-top: 15px;
-  padding: 15px;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 320px;
-}
-
-/* REQUEST STATUS BADGES */
-.badge {
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  color: white;
-}
-
-.badge-pending {
-  background: #f59e0b;
-}
-
-.badge-approved {
-  background: #10b981;
-}
-
-.badge-rejected {
-  background: #ef4444;
-}
-
-/* REQUEST FORM BOX */
-#requestFormContainer {
-  background: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 350px;
-}
-
-.request-item {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 5px;
+/* Optional: prevent dropdown item wrapping */
+.dropdown-menu .dropdown-item {
+  white-space: nowrap;
 }
