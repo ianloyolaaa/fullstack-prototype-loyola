@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Full-Stack App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="not-authenticated">
+
+<nav class="navbar">
+  <div class="brand">Full-Stack App (Ian Loyola)</div>
+
+  <ul class="nav-links">
+    <!-- Admin Links -->
+    <li class="role-logged-in role-admin"><a href="#/employees">Employees</a></li>
+    <li class="role-logged-in role-admin"><a href="#/accounts">Accounts</a></li>
+    <li class="role-logged-in role-admin"><a href="#/departments">Departments</a></li>
+
+    <!-- Logged Out -->
+    <li class="role-logged-out"><a href="#/login">Login</a></li>
+    <li class="role-logged-out"><a href="#/register">Register</a></li>
+
+    <!-- Logged In -->
+    <li class="role-logged-in"><a href="#/profile" id="navUsername"></a></li>
+    <li class="role-logged-in"><a href="#/requests">My Requests</a></li>
+    <li class="role-logged-in"><a href="#" id="logoutBtn">Logout</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home-page" class="page active home-section">
+    <div class="home-container">
+      <h1>Welcome to Full-Stack App</h1>
+      <p class="subtitle">A static prototype before backend integration. Simulates:</p>
+      <ul class="feature-list">
+        <li>Email registration + fake verification</li>
+        <li>Login with JWT-like token simulation</li>
+        <li>Role-based UI (Admin/User)</li>
+        <li>CRUD for Employees, Departments, Requests</li>
+      </ul>
+      <div class="info-box">
+        ⚠ <strong>Note:</strong> All data is stored in <span class="code">localStorage</span>. Refresh to reset.
+      </div>
+      <button class="primary-btn" onclick="navigateTo('#/register')">Get Started →</button>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="register-page" class="page">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input id="regFirst" placeholder="First Name" required><br>
+      <input id="regLast" placeholder="Last Name" required><br>
+      <input id="regEmail" type="email" placeholder="Email" required><br>
+      <input id="regPass" type="password" placeholder="Password (min 6 chars)" required><br>
+      <button type="submit">Register</button>
+    </form>
+  </section>
+
+  <!-- VERIFY -->
+  <section id="verify-page" class="page">
+    <h2>Verify Email</h2>
+    <p id="verifyMessage">Verification sent. Click button below to simulate.</p>
+    <button id="verifyBtn">✅ Simulate Email Verification</button>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="login-page" class="page">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Email" required><br>
+      <input id="loginPass" type="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile-page" class="page">
+    <h2>Profile</h2>
+    <div id="profileContent"></div>
+  </section>
+
+  <!-- ACCOUNTS -->
+  <section id="accounts-page" class="page">
+    <h2>Accounts (Admin)</h2>
+    <button id="addAccountBtn" class="primary-btn">+ Add Account</button>
+    <div id="accountFormContainer" class="form-card" style="display:none;">
+      <h3 id="formTitle">Add Account</h3>
+      <input id="accFirst" placeholder="First Name"><br>
+      <input id="accLast" placeholder="Last Name"><br>
+      <input id="accEmail" type="email" placeholder="Email"><br>
+      <input id="accPass" type="password" placeholder="Password"><br>
+      <select id="accRole">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <label>
+        <input type="checkbox" id="accVerified"> Verified
+      </label><br>
+      <button id="saveAccountBtn" class="primary-btn">Save</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+    <div id="accountsTable"></div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <section id="departments-page" class="page">
+    <h2>Departments (Admin)</h2>
+    <button id="addDepartmentBtn" class="primary-btn">+ Add Department</button>
+    <div id="departmentsTable"></div>
+  </section>
+
+  <!-- EMPLOYEES -->
+  <section id="employees-page" class="page">
+    <h2>Employees (Admin)</h2>
+    <button id="addEmployeeBtn" class="primary-btn">+ Add Employee</button>
+    <div id="employeesTable"></div>
+  </section>
+
+  <!-- REQUESTS -->
+  <section id="requests-page" class="page">
+    <h2>My Requests</h2>
+    <button id="addRequestBtn" class="primary-btn">+ New Request</button>
+    <div id="requestsTable"></div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
