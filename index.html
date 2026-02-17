@@ -58,14 +58,30 @@
   <main class="container py-4">
 
     <!-- HOME -->
-    <section id="home-page" class="page active">
-      <div class="p-4 bg-light rounded border">
-        <h1 class="h3">Welcome to Full-Stack App</h1>
-        <p class="mb-0">A static prototype before backend integration.</p>
-        <hr />
-        <a class="btn btn-primary" href="#/login">Get Started →</a>
+<section id="home-page" class="page active">
+  <div class="p-4 bg-white rounded shadow-sm border">
+    <h1 class="h1 **fw-bold**">Welcome to Full-Stack App</h1>
+    <p class="mb-2 **fw-bold**">A static prototype before backend integration. Simulates:</p>
+    
+    <ul class="mb-4 **fw-bold**">
+      <li>Email registration + fake verification</li>
+      <li>Login with JWT-like token simulation</li>
+      <li>Role-based UI (Admin/User)</li>
+      <li>CRUD for Employees, Departments, Requests</li>
+    </ul>
+
+    <div class="alert d-flex align-items-center py-2" style="background-color: #e0f7fa; border: none; color: #006064;">
+      <span class="me-2">⚠️</span>
+      <div class="**fw-bold**">
+        Note: <span style="color: #000;">All data is stored in</span> <code style="color: #d81b60; background: none; padding: 0;">localStorage</code>. <span style="color: #000;">Refresh to reset.</span>
       </div>
-    </section>
+    </div>
+
+    <div class="mt-4">
+      <a class="btn btn-primary btn-lg px-4 **fw-bold**" href="#/login" style="background-color: #0d6efd; border-radius: 8px;">Get Started →</a>
+    </div>
+  </div>
+</section>
 
     <!-- REGISTER -->
     <section id="register-page" class="page">
